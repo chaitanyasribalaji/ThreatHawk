@@ -74,16 +74,16 @@ export default function App() {
   // Users Directory & Fleet
   const [allUsers, setAllUsers] = useState(() => safeJSONParse('threathawk_users_dir', initialUsers, 'aegis_users_dir'));
   const [masterFleet, setMasterFleet] = useState(() => safeJSONParse('threathawk_master_fleet', masterFleetBands, 'aegis_master_fleet'));
-  const [currentUser, setCurrentUser] = useState(() => safeJSONParse('threathawk_current_user', initialUsers[0], 'aegis_current_user'));
+  const [currentUser, setCurrentUser] = useState(() => safeJSONParse('threathawk_current_user', null, 'aegis_current_user'));
   const [guardians, setGuardians] = useState(() => safeJSONParse('threathawk_guardians', initialGuardians, 'aegis_guardians'));
   const [bandMetrics, setBandMetrics] = useState(initialBandMetrics);
   const [activityLogs, setActivityLogs] = useState(() => safeJSONParse('threathawk_logs', initialActivityLogs, 'aegis_logs'));
   const [settings, setSettings] = useState(() => safeJSONParse('threathawk_settings', initialSafetySettings, 'aegis_settings'));
 
-  // Modal triggers
+  // Modal triggers (Default isAuthModalOpen to true if not signed in)
   const [isSOSOpen, setIsSOSOpen] = useState(false);
   const [sosTriggerSource, setSosTriggerSource] = useState('Panic SOS Button');
-  const [isAuthModalOpen, setIsAuthModalOpen] = useState(false);
+  const [isAuthModalOpen, setIsAuthModalOpen] = useState(() => !safeJSONParse('threathawk_current_user', null, 'aegis_current_user'));
   const [isFakeCallOpen, setIsFakeCallOpen] = useState(false);
 
   // Start real browser geolocation watcher
@@ -165,10 +165,11 @@ export default function App() {
   const handleLogout = () => {
     setCurrentUser(null);
     setActiveTab('dashboard');
+    setIsAuthModalOpen(true);
     handleLogActivity({
       type: 'AUTH_LOGOUT',
       title: 'User Signed Out',
-      description: 'Account session closed.',
+      description: 'Account session closed. Please sign in to continue.',
       severity: 'info'
     });
   };
