@@ -117,7 +117,9 @@ export default function SOSModal({
       <div className="glass-panel" style={{
         maxWidth: '680px',
         width: '100%',
-        padding: '32px',
+        maxHeight: '90vh',
+        overflowY: 'auto',
+        padding: '24px',
         border: '2px solid var(--primary-red)',
         boxShadow: '0 0 50px rgba(255, 59, 92, 0.6)',
         position: 'relative',

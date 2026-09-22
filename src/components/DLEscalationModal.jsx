@@ -65,7 +65,9 @@ export default function DLEscalationModal({
       <div className="glass-panel" style={{
         maxWidth: '560px',
         width: '100%',
-        padding: '32px',
+        maxHeight: '90vh',
+        overflowY: 'auto',
+        padding: '24px',
         border: '3px solid var(--primary-red)',
         boxShadow: '0 0 60px rgba(255, 59, 92, 0.8)',
         borderRadius: 'var(--radius-lg)',

@@ -289,3 +289,126 @@ label {
   color: var(--text-muted);
   margin-bottom: 6px;
 }
+
+/* ==========================================================================
+   Comprehensive Device Responsiveness (Mobile, Tablet, Laptop, Desktop)
+   ========================================================================== */
+
+/* Universal Responsive Image & Canvas Scaling */
+img, video, canvas {
+  max-width: 100%;
+  height: auto;
+}
+
+/* Mobile Devices & Small Screens (<= 768px) */
+@media (max-width: 768px) {
+  .app-container {
+    padding: 12px 10px;
+  }
+
+  /* Header Navbar Mobile Layout */
+  header.glass-panel {
+    padding: 14px 14px !important;
+    margin-bottom: 16px !important;
+  }
+
+  /* Flex direction column on mobile header */
+  header.glass-panel > div:first-child {
+    flex-direction: column;
+    align-items: stretch !important;
+    gap: 12px !important;
+  }
+
+  /* Anchor actions & user account on mobile */
+  header.glass-panel > div:first-child > div:last-child {
+    width: 100%;
+    margin-left: 0 !important;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 8px !important;
+  }
+
+  /* Device status pill responsive width */
+  header.glass-panel > div:first-child > div:nth-child(2) {
+    align-self: flex-start;
+    padding: 6px 12px !important;
+    font-size: 0.8rem !important;
+  }
+
+  /* Compact button styling on mobile */
+  .btn {
+    padding: 8px 12px;
+    font-size: 0.85rem;
+  }
+
+  .btn-sm {
+    padding: 5px 10px;
+    font-size: 0.78rem;
+  }
+
+  /* Scrollable Navigation Tabs on Mobile */
+  nav {
+    display: flex;
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+    padding-bottom: 6px;
+    gap: 6px !important;
+    margin-top: 14px !important;
+    padding-top: 12px !important;
+  }
+
+  nav button {
+    padding: 8px 12px !important;
+    font-size: 0.8rem !important;
+    flex-shrink: 0;
+  }
+
+  /* Responsive Grid Tweaks */
+  .content-grid {
+    gap: 16px;
+    margin-top: 16px;
+  }
+
+  /* Modal Padding and Max-Height Scrolling */
+  .glass-panel {
+    border-radius: var(--radius-md);
+  }
+}
+
+/* Extra Small Phones (<= 480px) */
+@media (max-width: 480px) {
+  .app-container {
+    padding: 8px 6px;
+  }
+
+  h1 {
+    font-size: 1.2rem !important;
+  }
+
+  h2 {
+    font-size: 1.3rem !important;
+  }
+
+  .badge {
+    font-size: 0.65rem !important;
+    padding: 3px 7px !important;
+  }
+}
+
+/* Tablet Device Optimizations (769px - 1024px) */
+@media (min-width: 769px) and (max-width: 1024px) {
+  .app-container {
+    padding: 16px;
+  }
+
+  header.glass-panel {
+    padding: 16px 20px !important;
+  }
+}
+
+/* Ultra-Wide Screen Constraints (> 1440px) */
+@media (min-width: 1440px) {
+  .app-container {
+    max-width: 1440px;
+  }
+}

@@ -195,7 +195,7 @@ export default function AuthModal({ isOpen, onClose, onAuthSuccess, existingUser
         </div>
       )}
 
-      <div className="glass-panel" style={{ maxWidth: '480px', width: '100%', padding: '32px', position: 'relative' }}>
+      <div className="glass-panel" style={{ maxWidth: '480px', width: '100%', maxHeight: '90vh', overflowY: 'auto', padding: '24px', position: 'relative' }}>
         
         {/* Close Button */}
         <button
